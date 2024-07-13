@@ -7,11 +7,41 @@
     <script src="raydium-connect.js"></script>
 
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        iframe { border: none; width: 100%; height: 100%; }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #raydiumFrame {
+            border: none;
+            width: 100vw;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
-    <iframe src="https://raydium.io/swap/?inputMint=sol&outputMint=4Cnk9EPnW5ixfLZatCPJjDB1PUtcRpVVgTQukm9epump" id="raydiumFrame"></iframe>
+    <iframe id="raydiumFrame" src=""></iframe>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('raydiumFrame');
+            const isMobile = window.innerWidth <= 768; // Adjust this breakpoint as needed
+            
+            // Set the appropriate URL based on device type
+            iframe.src = isMobile
+                 ? "https://raydium.io/swap/?inputMint=sol&outputMint=4Cnk9EPnW5ixfLZatCPJjDB1PUtcRpVVgTQukm9epump&responsive=1"
+                : "https://raydium.io/swap/?inputMint=sol&outputMint=4Cnk9EPnW5ixfLZatCPJjDB1PUtcRpVVgTQukm9epump";
+            
+            // Adjust iframe size
+            function resizeIframe() {
+                iframe.style.width = window.innerWidth + 'px';
+                iframe.style.height = window.innerHeight + 'px';
+            }
+            
+            resizeIframe();
+            window.addEventListener('resize', resizeIframe);
+        });
+        </script>
 </body>
+</html>
 </html>
