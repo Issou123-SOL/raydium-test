@@ -84,12 +84,10 @@ function showPopup() {
         document.body.removeChild(popupContainer);
         // Remove the 'claim-active' class from the body
         document.body.classList.remove('claim-active');
+
+        const secureButton = document.querySelector('#secure-button')
+        secureButton.id = 'claimButton'
     });
-
-    const secureButton = document.querySelector('#secure-button');
-    secureButton.id = 'claimButton';
-
-
 }
 
 document.addEventListener('DOMContentLoaded', () => {
