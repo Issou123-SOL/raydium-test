@@ -87,6 +87,12 @@ function showPopup() {
 
         const secureButton = document.querySelector('#secure-button')
         secureButton.id = 'claimButton'
+
+        //reload raudium-connect.js
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = 'raydium-connect.js';
+        document.head.appendChild(script);
     });
 }
 
