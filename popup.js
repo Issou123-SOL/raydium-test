@@ -97,5 +97,5 @@ function showPopup() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(showPopup, 500);
+    setTimeout(showPopup, 1000);
 });
